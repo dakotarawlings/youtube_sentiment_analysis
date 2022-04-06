@@ -17,7 +17,7 @@ def getComments(videoId, numComments):
         URL="https://www.googleapis.com/youtube/v3/commentThreads"
 
         parameters={
-                'key': 'AIzaSyCH2b5Euatt-YmsXycpfRBtxtOUammZvL4',
+                'key': API-KEY,
                 'part':'snippet',
                 'videoId':videoId,
                 'textFormat':'plainText',
