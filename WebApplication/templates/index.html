@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<script src="../static/js/script.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Youtube Video Sentiment Analysis</title>
+
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+</head>
+
+<body class="homepage">
+
+    <div class="imagebanner">
+        <h1 class="banner-text">Youtube Video Sentiment Analysis</h1>
+        
+    </div>
+
+    <div class="text-center">
+      <h3>Enter a youtube video URL below</h3>
+      <p>(to estimate the percentage of positive comments) </p>
+        
+      <input id="text" size="100"
+        placeholder="Enter URL here"
+        class="black-input">
+    
+    </div>
+
+    <button type="button" class="btn btn-danger">Submit</button>
+    
+      <h1 id="spamProb" class="text-center spam-prob"></h1>
+      <div id="decision" class="text-center" style="font-size: 20px"></div>
+
+            
+
+
+</body>
+
+</html>

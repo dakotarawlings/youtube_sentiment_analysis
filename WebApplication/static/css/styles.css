@@ -1,0 +1,45 @@
+/*define formatting for image at top of page*/
+.imagebanner {
+
+    position: relative;
+    height: 150px;
+    padding: 1px;
+    margin-top: -2px;
+    margin-left: -10px;
+    background: teal;
+        background-image: url("../images/BannerImage.jpeg");
+        background-size: cover;
+}
+
+.black-input{
+    border-radius: 25px;
+    width: 500px;
+    height: 40px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: center;
+    color:black;
+
+}
+
+.homepage {
+
+    background-color: rgb(40, 42, 43);
+    text-align: center;
+    color:white;
+    font-family: "Montserrat",sans-serif;
+}
+
+.banner-text {
+    text-align: center;
+    color:white;
+    font-family: "Montserrat",sans-serif;
+    /* color:white; 
+    font-weight: bold;
+    line-height: 90px; 
+    height: 90px; 
+    margin-top: 5px; 
+    margin-bottom: 0px; 
+    font-family: "Montserrat", sans-serif; */
+}
+
