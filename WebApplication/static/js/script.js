@@ -6,22 +6,23 @@ window.addEventListener('load', ()=>{
 });
 
 function getReccomendation(sentimentRatio){
-  const color=''
-  const statement=''
+  var color='';
+  var statement='';
 
-  if (45>sentimentRatio>0){
-    color='red'
-    statement='The overall sentiment in the comments is negative'
+  if (45>sentimentRatio && sentimentRatio>0){
+    color='red';
+    statement='The average sentiment of the comments is negative';
   }
-  if (55>sentimentRatio>45){
-    color='yellow'
-    statement='The overall sentiment in the comments is neutral'
+  if (55>sentimentRatio && sentimentRatio>45){
+    color='yellow';
+    statement='The average sentiment of the comments is neutral';
   }
-  if (100>sentimentRatio>55){
-    color='green'
-    statement='The overall sentiment in the comments is positive'
+  if (100>sentimentRatio && sentimentRatio>55){
+    color='green';
+    statement='The average sentiment of the comments is positive';
   }
 
+  return [color, statement]
 
 }
 
@@ -37,13 +38,17 @@ async function onSubmit() {
       "Content-type": "application/json"
     }
       })
-      const responseData=await response.json()
-      const sentimentRatio=responseData['sentimentRatio']
+      const responseData=await response.json();
+      var sentimentRatio=responseData['sentimentRatio'];
 
-      document.getElementById("sentimentRatio").innerHTML = String(sentimentRatio*100);
-      document.getElementById("sentimentRatio").style.color = "#ff0000";
+      sentimentRatio=sentimentRatio*100;
+      [color, statement]=getReccomendation(sentimentRatio);
 
+      document.getElementById("sentimentRatio").innerHTML = String(sentimentRatio);
+      document.getElementById("sentimentRatio").style.color = color;
       document.getElementById("sentimentDescription").innerHTML = "% of the comments on this video are positive";
+      document.getElementById("decision").innerHTML = statement;
+      document.getElementById("decision").style.color = color;
 }
 
 
