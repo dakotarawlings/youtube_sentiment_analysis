@@ -11,12 +11,6 @@ import json
 
 import pickle
 
-# URL='https://www.youtube.com/watch?v=Yk-unX4KnV4'
-# obj=urlparse(URL)
-# print(obj.query.replace('v=',''))
-
-
-
 def getComments(videoId, maxComments):
         isPageToken=True
         count=0
@@ -72,37 +66,6 @@ def getVideoCommentSentiments(videoURL):
 
         return [y_predp, sentimentRatio]
 
-#%%
-[y_predp_test, ratio]=getVideoCommentSentiments('https://www.youtube.com/watch?v=qfyynHBFOsM')
-
-print(len(y_predp_test))
-
-
-
-
-
-#%%
-URL="https://www.googleapis.com/youtube/v3/commentThreads"
-
-parameters={
-        'key': 'AIzaSyCH2b5Euatt-YmsXycpfRBtxtOUammZvL4',
-        'part':'snippet',
-        'videoId':'qfyynHBFOsM',
-        'textFormat':'plainText',
-        'maxResults':'100'
-        }
-
-#parameters['pageToken']=PageToken
-
-r=requests.get(URL, params=parameters,)
-
-jsonResponse=r.json()
-
-print(jsonResponse)
-
-corpus=[jsonResponse["items"][i]["snippet"]["topLevelComment"]["snippet"]["textDisplay"] for i in range(len(jsonResponse["items"]))]
-
-jsonResponse['pageInfo']['totalResults']
 
 
 

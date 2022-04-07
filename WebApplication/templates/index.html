@@ -28,17 +28,18 @@
 
     <div class="text-center">
       <h3>Enter a youtube video URL below</h3>
-      <p>(to estimate the percentage of positive comments) </p>
+      <p>(To estimate the percentage of comments with a postive sentiment) </p>
         
-      <input id="text" size="100"
+      <input id="URL" size="100"
         placeholder="Enter URL here"
         class="black-input">
     
     </div>
 
-    <button type="button" class="btn btn-danger">Submit</button>
+    <button type="button" class="btn btn-danger" id="submitButton">Submit</button>
     
-      <h1 id="spamProb" class="text-center spam-prob"></h1>
+      <h2 id="response" class="text-center spam-prob" ><span id="sentimentRatio"></span> <span id="sentimentDescription"></span></h2>
+
       <div id="decision" class="text-center" style="font-size: 20px"></div>
 
             
