@@ -7,7 +7,10 @@
 ### Web App Link: https://youtube-sentiment-estimator.herokuapp.com/
 
 ## Overview
-* Scraped live and historical timeseries weather data from NOAA bouy stations
+* Used the IMDB movie review sentiment database for training 
+* Calculated word embeddings using word2vec and trained SVA model for sentiment classification
+* Utilized Youtube API to retrieve comments for a given video
+* Calculated average word embedding for each comment, applied SVC model to each comment to estimate sentiment, and calculated percentage of positive comments
 * Deployed model in a full stack web app
 
 ## Resources

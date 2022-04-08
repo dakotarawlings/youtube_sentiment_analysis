@@ -9,12 +9,7 @@ import pandas as pd
 import pickle
 
 import get_youtube_comment_data
-import spacy
-try:
-        nlp = spacy.load("en_core_web_md")
-except: # If not present, we download
-        spacy.cli.download("en_core_web_md")
-        nlp = spacy.load("en_core_web_md")   
+import spacy 
 #Call flask constructor
 
 app=Flask(__name__)
