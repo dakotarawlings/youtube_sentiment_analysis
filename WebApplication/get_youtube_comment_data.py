@@ -2,7 +2,7 @@
 
 import numpy as np
 import pandas as pd
-import spacy
+
 import time
 
 import requests
@@ -10,6 +10,14 @@ from urllib.parse import urlparse
 import json
 
 import pickle
+
+import spacy
+try:
+        nlp = spacy.load("en_core_web_md")
+except: # If not present, we download
+        spacy.cli.download("en_core_web_md")
+        nlp = spacy.load("en_core_web_md")        
+
 
 def getComments(videoId, maxComments):
         isPageToken=True
@@ -50,7 +58,7 @@ def getVideoCommentSentiments(videoURL):
 
         corpus=getComments(videoId, 500)
 
-        nlp=spacy.load(r'C:\Users\dakot\anaconda3\envs\youtube_nlp\Lib\site-packages\en_core_web_lg\en_core_web_lg-3.2.0')
+        #nlp=spacy.load(r'C:\Users\dakot\anaconda3\envs\youtube_nlp\Lib\site-packages\en_core_web_lg\en_core_web_lg-3.2.0')
 
         with nlp.disable_pipes():
                 vectors = np.array([nlp(comment).vector for comment in corpus])
@@ -63,6 +71,7 @@ def getVideoCommentSentiments(videoURL):
         modelFile.close()
 
         sentimentRatio=list(y_predp).count(1)/(list(y_predp).count(0)+list(y_predp).count(1))
+        sentimentRatio=round(sentimentRatio*100)/100
 
         return [y_predp, sentimentRatio]
 

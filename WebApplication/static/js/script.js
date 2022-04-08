@@ -41,7 +41,7 @@ async function onSubmit() {
       const responseData=await response.json();
       var sentimentRatio=responseData['sentimentRatio'];
 
-      sentimentRatio=sentimentRatio*100;
+      sentimentRatio=Math.round(sentimentRatio*100);
       [color, statement]=getReccomendation(sentimentRatio);
 
       document.getElementById("sentimentRatio").innerHTML = String(sentimentRatio);
