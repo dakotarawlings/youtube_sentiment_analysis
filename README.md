@@ -9,16 +9,16 @@
 ## Overview
 * Used the IMDB movie review sentiment database for training 
 * Calculated word embeddings using word2vec/spacy and trained SVA model for sentiment classification
-* Utilize Youtube API to retrieve comments for a user-inputed youtube video URL
+* Built webapp that calls Youtube API to retrieve comments for a user-inputed youtube video URL
 * Calculate average word embedding for each comment, apply SVC model to each comment to estimate sentiment, and calculate percentage of positive comments
-* Deployed app in a full stack web app on AWS EC2 using gunicorn as a wsgi server and nginx as a reverse proxy server
+* Deployed full stack web app on AWS EC2 using gunicorn as a wsgi server and nginx as a reverse proxy server
 
 ## Resources
 **Python version:** 3.8
 
-**Packages:** Spacy, sqlite3, pandas, numpy, sklearn, XGBoost, SVA, seaborn, requests, flask, pickle
+**Packages:** AWS, EC2, amazon RDS, Spacy, sqlite3, pandas, numpy, sklearn, XGBoost, SVA, seaborn, requests, flask, pickle
 
-**Languages:** python, MYSQL, AWS, EC2, amazon RDS, SQLite, JavaScript, HTML, CSS
+**Languages:** python, MYSQL, SQLite, JavaScript, HTML, CSS
 
 ## Data Cleaning and Feature Engineering
 * Used the IMDB movie review sentiment database for training 
