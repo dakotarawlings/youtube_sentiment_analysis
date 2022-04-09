@@ -4,14 +4,14 @@
   <img src="readme_images/homepage.png" width="600" >
 </p>
 
-### Web App Link: https://youtube-sentiment-estimator.herokuapp.com/
+### Web App Link: http://ec2-54-183-14-147.us-west-1.compute.amazonaws.com/
 
 ## Overview
 * Used the IMDB movie review sentiment database for training 
-* Calculated word embeddings using word2vec and trained SVA model for sentiment classification
-* Utilized Youtube API to retrieve comments for a given video
-* Calculated average word embedding for each comment, applied SVC model to each comment to estimate sentiment, and calculated percentage of positive comments
-* Deployed model in a full stack web app
+* Calculated word embeddings using word2vec/spacy and trained SVA model for sentiment classification
+* Utilize Youtube API to retrieve comments for a user-inputed youtube video URL
+* Calculate average word embedding for each comment, apply SVC model to each comment to estimate sentiment, and calculate percentage of positive comments
+* Deployed app in a full stack web app on AWS EC2 using gunicorn as a wsgi server and nginx as a reverse proxy server
 
 ## Resources
 **Python version:** 3.8
@@ -36,12 +36,13 @@ The SVC model achieved an accuracy of 87% for predicting the sentiment (positive
 
 ## Model Productionalization
 
-* Used Youtube Comments API to automatically retrieve a list of comment strings for a given link
+* Used Youtube Comments API to automatically retrieve a list of comment strings for a given link inputted by the user
 * Calculate word embeddings for each comment for a given video
 * Implement SVC model to predict sentiment of each comment
 * Calculate the percentage of comments that have a positive sentiment
 * Created flask API endpoint 
-* Wrote a full stack web application in HTML, CSS, and JavaScript 
+* Wrote a full stack web application in HTML, CSS, and JavaScript
+* Deployed web app on AWS EC2 using gunicorn as a wsgi server and nginx as a reverse proxy server 
 
 ## Future work
 * Working on improving documentation
