@@ -1,10 +1,24 @@
+/**
+ * This script defines the behaviors for the youtube comment sentiment analysis webapp
+ * The script takes a URL for a youtube video from the HTML text input box
+ * Calls the youtube sentiment predictor flask api endpoint
+ * and returns/prints the percentage of positive comments on the HTML page
+ */
+
+//URL for the API that retirieves the ratio of positive to negative comments based on the posted URL
 const API_URL='/youtubeVideoSentiment';
 
+//Add an event listener to call our onSubmit function when the submit button is pressed
 window.addEventListener('load', ()=>{
   const button=document.getElementById('submitButton');
   button.addEventListener("click", onSubmit);
 });
 
+/**
+ * Function to get a color and a sentence that summarize the overall sentament based on the sentament ratio
+ * @param sentimentRatio (int) the percentage of comments that are predicted to be positive
+ * @returns List [color(string), statement(string)] where the color is either red, yellow or green and the statement summarizes the overall sentiment of the comments
+ */
 function getReccomendation(sentimentRatio){
   var color='';
   var statement='';
@@ -26,9 +40,16 @@ function getReccomendation(sentimentRatio){
 
 }
 
+/**
+ * Function to:
+ * 1. Get the URL from the HTML text box
+ * 2. Call the youtube video comment sentiment analysis with a post request containing the URL
+ * 3. Retrieve the sentiment ratio from the response and print the respnse on the HTML page
+ */
 async function onSubmit() {
+  //Get the URL from teh HTML page
   const URL=document.getElementById("URL").value;
-
+  //add the URL to a formatted JSON for our post request
   const URLstring=JSON.stringify({'URL':URL});
   
   const response=await fetch(API_URL, {
