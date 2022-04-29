@@ -9,7 +9,7 @@ import requests
 from urllib.parse import urlparse
 import json
 import pickle
-
+#%%
 # URL='https://www.youtube.com/watch?v=Yk-unX4KnV4'
 # obj=urlparse(URL)
 # print(obj.query.replace('v=',''))
@@ -82,7 +82,7 @@ print(len(y_predp_test))
 
 #%%
 URL="https://www.googleapis.com/youtube/v3/commentThreads"
-
+# URL='https://www.googleapis.com/youtube/v3/activities'
 parameters={
         'key': 'AIzaSyCH2b5Euatt-YmsXycpfRBtxtOUammZvL4',
         'part':'snippet',
@@ -105,10 +105,30 @@ jsonResponse['pageInfo']['totalResults']
 
 
 
+#%%
 
 
+#%%
+# URL="https://www.googleapis.com/youtube/v3/commentThreads"
+URL='https://www.googleapis.com/youtube/v3/videos'
+parameters={
+        'key': 'AIzaSyCH2b5Euatt-YmsXycpfRBtxtOUammZvL4',
+        'part':'statistics',
+        'id': 'xpIFS6jZbe8'
+        }
+
+#parameters['pageToken']=PageToken
+
+r=requests.get(URL, params=parameters,)
+
+jsonResponse=r.json()
+
+print(jsonResponse["items"][0]['statistics'])
+
+pd.DataFrame(jsonResponse["items"][0]['statistics'], index=[0])
 
 
+#%%
 
 
 

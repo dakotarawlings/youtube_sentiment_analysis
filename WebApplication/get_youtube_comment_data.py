@@ -51,6 +51,8 @@ def getComments(videoId, maxComments):
                 count+=jsonResponse['pageInfo']['totalResults']
         return corpus
 
+
+
 def getVideoCommentSentiments(videoURL): 
 
         obj=urlparse(videoURL)
@@ -74,6 +76,24 @@ def getVideoCommentSentiments(videoURL):
         sentimentRatio=round(sentimentRatio*100)/100
 
         return [y_predp, sentimentRatio]
+
+def updateVideoStatsDatabase(videoId, sentimentRatio):
+        URL='https://www.googleapis.com/youtube/v3/videos'
+        parameters={
+                'key': 'AIzaSyCH2b5Euatt-YmsXycpfRBtxtOUammZvL4',
+                'part':'statistics',
+                'id': videoId
+                }
+
+        r=requests.get(URL, params=parameters,)
+
+        jsonResponse=r.json()
+
+        print(jsonResponse["items"][0]['statistics'])
+
+        df_summaryStats=pd.DataFrame(jsonResponse["items"][0]['statistics'], index=[0])
+        df_summaryStats['videoId']=videoId
+        df_summaryStats['sentimentRatio']=sentimentRatio
 
 
 
