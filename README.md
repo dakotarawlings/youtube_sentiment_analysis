@@ -20,21 +20,51 @@
 
 **Languages:** python, MYSQL, SQLite, JavaScript, HTML, CSS
 
-## Data Cleaning and Feature Engineering
+## TF-IDF Model (using Spacy)
+### Data Cleaning and Feature Engineering
+<p align="center">
+  <img src="readme_images/word_cloud.png" height="300" >
+  <img src="readme_images/count_plot.png" height="300" >
+</p>
+
+* Used the IMDB movie review sentiment database for training 
+https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews 
+* Removed stop  words and lematized all words
+* Created a TF-IDF model with 2500 features
+ 
+### Model Development
+* Split the data into train and test sets (20% test) with the document sentiment (positive or negative) as the target value
+* Due to the high dimensionality of the dataset, I tested random forest, XGB, SVC, and Lasso models 
+* Selected the SVC model as the model for productionalization
+  
+### Model performance
+<p align="center">
+  <img src="readme_images/confusion_matrix.png" width="400" >
+</p>
+The SVC model achieved an accuracy of 87% for predicting the sentiment (positive or negative)
+
+## Word Embedding Model (using Spacy)
+### Data Cleaning and Feature Engineering
 * Used the IMDB movie review sentiment database for training 
 https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews 
 * Used word2vec and spacy word embedding model
 * Calculated vector for each document (comment) by averaging word embeddings for all words in a document
  
-## Model Development
+### Model Development
 * Split the data into train and test sets (20% test) with the document sentiment (positive or negative) as the target value
 * Due to the high dimensionality of the dataset, I tested random forest, XGB, SVC, and Lasso models 
 * Selected the SVC model as the model for productionalization
   
-## Model performance
+### Model performance
+<p align="center">
+  <img src="readme_images/confusion_matrix_spacy.png" width="400" >
+</p>
 The SVC model achieved an accuracy of 87% for predicting the sentiment (positive or negative)
 
 ## Model Productionalization
+<p align="center">
+  <img src="readme_images/homepage.png" width="600" >
+</p>
 
 * Used Youtube Comments API to automatically retrieve a list of comment strings for a given link inputted by the user
 * Calculate word embeddings for each comment for a given video
@@ -47,3 +77,4 @@ The SVC model achieved an accuracy of 87% for predicting the sentiment (positive
 ## Future work
 * Working on improving documentation
 * Improved error handling in the web app and the API
+* The IMDB database and youtube comment data are not directly comparable. A better training dataset is necessary
