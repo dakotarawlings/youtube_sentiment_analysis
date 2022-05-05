@@ -20,7 +20,7 @@
 
 **Languages:** python, MYSQL, SQLite, JavaScript, HTML, CSS
 
-## TF-IDF Model (using Spacy)
+## TF-IDF Model (using NLTK)
 ### Data Cleaning and Feature Engineering
 <p align="center">
   <img src="readme_images/word_cloud.png" height="300" >
@@ -43,7 +43,7 @@ https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-review
 </p>
 The SVC model achieved an accuracy of 87% for predicting the sentiment (positive or negative)
 
-## Word Embedding Model (using NLTK)
+## Word Embedding Model (using SpaCy)
 ### Data Cleaning and Feature Engineering
 * Used the IMDB movie review sentiment database for training 
 https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews 
