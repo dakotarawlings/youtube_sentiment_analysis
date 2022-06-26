@@ -4,7 +4,7 @@
   <img src="readme_images/homepage.png" width="600" >
 </p>
 
-### Web App Link: http://ec2-54-183-14-147.us-west-1.compute.amazonaws.com/
+### Web App Link: https://youtube-sentiment-estimator.herokuapp.com/
 
 ## Overview
 * Used the IMDB movie review sentiment database for training 
